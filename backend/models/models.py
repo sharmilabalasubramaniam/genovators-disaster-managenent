@@ -4,6 +4,21 @@ import enum
 from datetime import datetime
 from backend.database.db import Base
 
+class UserRole(str, enum.Enum):
+    ADMIN = "ADMIN"
+    OFFICER = "OFFICER"
+    FAMILY = "FAMILY"
+    HOSPITAL = "HOSPITAL"
+    SHELTER = "SHELTER"
+    RESCUE = "RESCUE"
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
+    role = Column(String, default=UserRole.FAMILY.value)
+    name = Column(String, default="")
 class CaseStatus(str, enum.Enum):
     NEW = "New"
     IN_PROGRESS = "In Progress"

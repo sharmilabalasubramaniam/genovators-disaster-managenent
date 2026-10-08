@@ -17,13 +17,20 @@ import ReunificationView from './pages/ReunificationView';
 import PlaceholderPage from './pages/PlaceholderPage';
 import DisasterPredictions from './pages/DisasterPredictions';
 import IdentityRecovery from './pages/IdentityRecovery';
+import Login from './pages/Login';
+
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+  return token ? children : <Navigate to="/login" replace />;
+};
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        <Route element={<DashboardLayout />}>
+        <Route element={<PrivateRoute><DashboardLayout /></PrivateRoute>}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/new" element={<NewCase />} />
