@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 from sqlalchemy.orm import Session
 from backend.database.db import SessionLocal, engine, Base
 from backend.models import models
+from backend.api.deps import get_password_hash
 import random
 from datetime import datetime, timedelta
 from faker import Faker
@@ -19,6 +20,26 @@ def seed_data():
     
     statuses = ["New", "In Progress", "In Verification", "Verified", "Reunified"]
     organizations = ["Shelter A", "Hospital B", "Rescue Team 3", "Shelter C", "Hospital C"]
+    
+    # Create Demo Users
+    demo_users = [
+        {"username": "admin@sahyat.demo", "role": "ADMIN", "name": "System Admin"},
+        {"username": "officer@sahyat.demo", "role": "OFFICER", "name": "Officer Jane"},
+        {"username": "family@sahyat.demo", "role": "FAMILY", "name": "Family Member"},
+        {"username": "hospital@sahyat.demo", "role": "HOSPITAL", "name": "City Hospital"},
+        {"username": "shelter@sahyat.demo", "role": "SHELTER", "name": "Relief Shelter"},
+        {"username": "rescue@sahyat.demo", "role": "RESCUE", "name": "Rescue Squad Alpha"},
+    ]
+    
+    for u in demo_users:
+        user = models.User(
+            username=u["username"],
+            hashed_password=get_password_hash("password123"),
+            role=u["role"],
+            name=u["name"]
+        )
+        db.add(user)
+    db.commit()
     
     for i in range(5):
         # Create Person

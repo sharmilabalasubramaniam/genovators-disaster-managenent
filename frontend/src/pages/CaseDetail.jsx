@@ -178,8 +178,8 @@ export default function CaseDetail() {
                     {caseData.status === 'Verified' || caseData.status === 'Reunification Ready' || caseData.status === 'Reunification In Progress' || caseData.status === 'Reunified' ? 'VERIFIED' : caseData.status === 'In Verification' ? 'IN REVIEW' : 'Not started'}
                   </div>
                   {(caseData.status === 'In Verification' || caseData.status === 'Verified' || caseData.status === 'Reunification Ready' || caseData.status === 'Reunification In Progress' || caseData.status === 'Reunified') && (
-                    <button onClick={() => navigate(`/verification/${caseData.vrn_id}`)} className="w-full mt-2 rounded bg-white border border-gray-300 py-1.5 text-xs font-bold text-gray-700 hover:bg-gray-50">
-                      {caseData.status === 'In Verification' ? 'REVIEW EVIDENCE' : 'VIEW VERIFICATION'}
+                    <button onClick={() => navigate(`/matches/${caseData.vrn_id}`)} className="w-full mt-2 rounded bg-white border border-gray-300 py-1.5 text-xs font-bold text-gray-700 hover:bg-gray-50">
+                      {caseData.status === 'In Verification' ? 'REVIEW MATCHES & VERIFY' : 'VIEW VERIFIED MATCH'}
                     </button>
                   )}
                 </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { HeartPulse, Home, FolderOpen, Map as MapIcon, ShieldCheck, Bell, Settings, UserPlus, Users, Activity } from 'lucide-react';
+import { HeartPulse, Home, FolderOpen, Map as MapIcon, ShieldCheck, Bell, Settings, UserPlus, Users, Activity, LogOut } from 'lucide-react';
 import api from '../services/api';
+import Chatbot from '../components/Chatbot';
 
 function NavItem({ icon: Icon, label, to, active, badge }) {
   return (
@@ -18,6 +19,15 @@ export default function DashboardLayout() {
   const path = location.pathname;
   const navigate = useNavigate();
   const [unreadCount, setUnreadCount] = React.useState(0);
+  
+  const userStr = localStorage.getItem('user');
+  const user = userStr ? JSON.parse(userStr) : { name: 'User', role: 'Unknown' };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
 
   React.useEffect(() => {
     api.get('/notifications/unread')
@@ -46,7 +56,6 @@ export default function DashboardLayout() {
           <NavItem icon={Activity} label="Hospital" to="/hospital" active={path === '/hospital'} />
           <NavItem icon={Home} label="Shelter" to="/shelter" active={path === '/shelter'} />
           <NavItem icon={UserPlus} label="Rescue" to="/rescue" active={path === '/rescue'} />
-          <NavItem icon={ShieldCheck} label="Verification" to="/verification" active={path === '/verification'} />
           <NavItem icon={Activity} label="Predictions" to="/predictions" active={path === '/predictions'} />
           <NavItem icon={Bell} label="Notifications" to="/notifications" active={path === '/notifications'} badge={unreadCount > 0 ? unreadCount : null} />
         </nav>
@@ -62,11 +71,14 @@ export default function DashboardLayout() {
               <Bell className="h-6 w-6" />
               {unreadCount > 0 && <span className="absolute -right-2 -top-1 rounded-full bg-pink-500 px-1.5 py-0.5 text-[10px] text-white">{unreadCount}</span>}
             </div>
-            <div className="flex cursor-pointer items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="flex flex-col text-right">
-                <span className="text-sm font-semibold">User</span>
-                <span className="text-xs text-gray-500">Officer</span>
+                <span className="text-sm font-semibold">{user.name || user.username}</span>
+                <span className="text-xs text-gray-500 capitalize">{user.role?.toLowerCase()}</span>
               </div>
+              <button onClick={handleLogout} className="text-gray-400 hover:text-red-500 transition-colors">
+                <LogOut className="h-5 w-5" />
+              </button>
             </div>
           </div>
         </header>
@@ -74,6 +86,7 @@ export default function DashboardLayout() {
           <Outlet />
         </div>
       </main>
+      <Chatbot />
     </div>
   );
 }
