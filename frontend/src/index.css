@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-background: #f4f7fe;
+  --color-card: #ffffff;
+  --color-primary: #4318ff;
+  --color-primary-hover: #3210cc;
+  --color-success: #05cd99;
+  --color-success-light: #e6fbf4;
+  --color-warning: #ffb547;
+  --color-warning-light: #fff7eb;
+  --color-info: #39b8ff;
+  --color-info-light: #eaf7ff;
+  --color-purple: #868cff;
+  --color-purple-light: #f4f5ff;
+  --color-pink: #ff65a0;
+  --color-pink-light: #ffeff5;
+  --color-sidebar: #12182b;
+  --color-text-main: #2b3674;
+  --color-text-muted: #a3aed1;
+  --color-border: #e9edf7;
+  --font-sans: "Inter", sans-serif;
+  --shadow-card: 0px 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-main font-sans overflow-x-hidden;
+  }
+}
