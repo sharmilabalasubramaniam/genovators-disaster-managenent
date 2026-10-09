@@ -36,7 +36,7 @@ def get_dashboard_stats(db: Session = Depends(get_db)):
     
     reunification_in_progress = db.query(models.Case).filter(models.Case.status == "REUNIFICATION_IN_PROGRESS").count()
     
-    reunited = db.query(models.Case).filter(models.Case.status == "Reunified" or models.Case.status == "REUNITED").count()
+    reunited = db.query(models.Case).filter(models.Case.status.in_(["Reunified", "REUNITED"])).count()
     
     total_organizations = (db.query(models.HospitalRecord).count() + 
                            db.query(models.ShelterRecord).count() + 

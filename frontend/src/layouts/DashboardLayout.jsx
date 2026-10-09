@@ -43,7 +43,7 @@ export default function DashboardLayout() {
           <SahyatLogo variant="light" className="w-full" />
         </div>
 
-        <nav className="flex flex-1 flex-col gap-2">
+        <nav className="flex flex-1 flex-col gap-2 overflow-y-auto pr-1 pb-4 [scrollbar-width:thin] [scrollbar-color:#2b3674_transparent]">
           <NavItem icon={Home} label="Dashboard" to="/dashboard" active={path === '/dashboard'} />
           <NavItem icon={FolderOpen} label="Cases" to="/cases" active={path.startsWith('/cases')} />
           <NavItem icon={MapIcon} label="Map" to="/map" active={path === '/map'} />
