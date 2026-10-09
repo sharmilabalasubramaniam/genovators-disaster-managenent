@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { HeartPulse, Home, FolderOpen, Map as MapIcon, ShieldCheck, Bell, Settings, UserPlus, Users, Activity, LogOut } from 'lucide-react';
 import api from '../services/api';
 import Chatbot from '../components/Chatbot';
+import SahyatLogo from '../components/SahyatLogo';
 
 function NavItem({ icon: Icon, label, to, active, badge }) {
   return (
@@ -38,14 +39,8 @@ export default function DashboardLayout() {
   return (
     <div className="flex min-h-screen bg-gray-50 font-sans text-gray-900">
       <aside className="fixed flex h-screen w-[280px] flex-col bg-[#111c44] p-6 text-white">
-        <div className="mb-10 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-pink-500">
-            <HeartPulse className="h-5 w-5" />
-          </div>
-          <div>
-            <h2 className="text-base font-bold leading-tight">Verified Reunification</h2>
-            <p className="text-[11px] text-gray-400">People. Evidence. Reunited.</p>
-          </div>
+        <div className="mb-10">
+          <SahyatLogo variant="light" className="w-full" />
         </div>
 
         <nav className="flex flex-1 flex-col gap-2">

@@ -226,7 +226,7 @@ export default function IdentityMatching() {
         <div className="bg-white rounded-xl shadow-md p-16 text-center border border-gray-200">
           <div className="animate-spin rounded-full h-20 w-20 border-b-4 border-blue-600 mx-auto mb-8"></div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Analyzing photograph and searching authorized candidate records...</h2>
-          <p className="text-gray-500 max-w-lg mx-auto">Sahyat is currently extracting facial embeddings using DeepFace and cross-referencing identity metadata.</p>
+          <p className="text-gray-500 max-w-lg mx-auto">SAHYAT is currently extracting facial embeddings using DeepFace and cross-referencing identity metadata.</p>
         </div>
       )}
 
@@ -347,7 +347,7 @@ export default function IdentityMatching() {
                 <div className="bg-slate-900 rounded-2xl shadow-xl p-8 text-white sticky top-6 border border-slate-700">
                   <h3 className="text-xl font-bold mb-8 flex items-center">
                     <CheckCircle className="h-6 w-6 mr-3 text-blue-400" />
-                    How Sahyat Matches
+                    How SAHYAT Matches
                   </h3>
                   
                   <div className="space-y-6">

@@ -48,6 +48,16 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
+      
+      {/* Dashboard Welcome Banner */}
+      <div className="w-full rounded-2xl overflow-hidden shadow-sm border border-gray-100 mb-6">
+        <img 
+          src="/assets/dashboard-banner.jpg" 
+          alt="Welcome to Sahyat" 
+          className="w-full h-auto object-cover"
+        />
+      </div>
+
       <h2 className="text-lg font-bold text-gray-900">Command Center Overview</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

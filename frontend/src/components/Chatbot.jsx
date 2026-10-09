@@ -5,7 +5,7 @@ import api from '../services/api';
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: 'Hello, I am the Sahyat AI Assistant. How can I help you with disaster reunification today?' }
+    { role: 'assistant', text: 'Hello, I am the SAHYAT AI Assistant. How can I help you with disaster reunification today?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ export default function Chatbot() {
   };
 
   const suggestions = [
-    "What is Sahyat?",
+    "What is SAHYAT?",
     "How does AI matching work?",
     "How do I report a missing person?",
     "How does verification work?",
@@ -65,7 +65,7 @@ export default function Chatbot() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 flex h-[500px] w-[350px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl border border-gray-200">
           <div className="flex items-center justify-between bg-blue-600 p-4 text-white">
-            <h3 className="font-semibold">Sahyat AI Assistant</h3>
+            <h3 className="font-semibold">SAHYAT AI Assistant</h3>
             <button onClick={() => setIsOpen(false)}><X className="h-5 w-5" /></button>
           </div>
           
