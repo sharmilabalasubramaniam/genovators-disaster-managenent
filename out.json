@@ -1,0 +1,2 @@
+{"source":"Open-Meteo","data_type":"REAL_EXTERNAL_DATA","latitude":11.0168,"longitude":76.9558,"temperature":23.5,"wind_speed":9.8,"wind_direction":347.0,"weather_code":2,"observation_time":"2026-10-08T20:45"}
+{"source":"USGS","data_type":"REAL_EXTERNAL_DATA","events":[{"magnitude":2.04,"place":"24 km SE of Pāhala, Hawaii","timestamp":"2026-10-08T20:34:56.990000Z","latitude":19.0298328399658,"longitude":-155.339004516602}]}

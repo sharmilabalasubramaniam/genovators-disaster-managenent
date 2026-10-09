@@ -16,7 +16,9 @@ import NotificationsPage from './pages/NotificationsPage';
 import ReunificationView from './pages/ReunificationView';
 import PlaceholderPage from './pages/PlaceholderPage';
 import DisasterPredictions from './pages/DisasterPredictions';
+import DisasterPulse from './pages/DisasterPulse';
 import IdentityRecovery from './pages/IdentityRecovery';
+import IdentityMatching from './pages/IdentityMatching';
 import Login from './pages/Login';
 
 const PrivateRoute = ({ children }) => {
@@ -57,6 +59,8 @@ function App() {
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/reunification/:id" element={<ReunificationView />} />
           <Route path="/predictions" element={<DisasterPredictions />} />
+          <Route path="/pulse" element={<DisasterPulse />} />
+          <Route path="/identity-matching" element={<IdentityMatching />} />
           <Route path="/identity" element={<IdentityRecovery />} />
           <Route path="/settings" element={<PlaceholderPage />} />
         </Route>

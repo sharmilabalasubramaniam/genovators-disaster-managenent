@@ -75,11 +75,31 @@ def run_matching_for_case(db: Session, family_case_id: int):
         db.add(match_result)
         db.flush()
         
+        supporting = []
+        conflicting = []
+        
+        if signals.get("face", 0) > 60: supporting.append("Strong facial similarity")
+        elif signals.get("face", 0) > 0 and signals.get("face", 0) <= 60: conflicting.append("Low facial similarity")
+        
+        if signals.get("age", 0) > 70: supporting.append("Compatible age")
+        elif signals.get("age", 0) < 30: conflicting.append("Age mismatch")
+        
+        if signals.get("name", 0) > 80: supporting.append("Name similarity")
+        if signals.get("gender", 0) > 90: supporting.append("Gender compatible")
+        if signals.get("location", 0) > 50: supporting.append("Location evidence")
+
         results.append({
             "record_id": candidate_case.vrn_id,
+            "candidate_id": candidate_case.vrn_id,
             "organization": _get_case_organization(candidate_case),
             "score": score,
-            "confidence": confidence
+            "overall_score": score,
+            "face_similarity": signals.get("face", 0),
+            "confidence": confidence,
+            "confidence_level": confidence,
+            "signals": signals,
+            "supporting_evidence": supporting,
+            "conflicting_evidence": conflicting
         })
         
     db.commit()

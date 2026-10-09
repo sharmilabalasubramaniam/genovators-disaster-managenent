@@ -4,7 +4,7 @@ from backend.database.db import engine, Base
 from backend.api import (
     cases, dashboard, locations, matching, 
     notifications, uploads, verification, 
-    reunification, announcements, ocr, predictions, auth, chatbot
+    reunification, announcements, ocr, predictions, auth, chatbot, external
 )
 
 Base.metadata.create_all(bind=engine)
@@ -32,6 +32,7 @@ app.include_router(ocr.router)
 app.include_router(predictions.router)
 app.include_router(auth.router)
 app.include_router(chatbot.router)
+app.include_router(external.router)
 
 from backend.identity_recovery.app.main import app as identity_recovery_app
 app.mount("/api/identity_recovery", identity_recovery_app)

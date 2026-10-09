@@ -75,6 +75,9 @@ def update_case(identifier: str, case: schemas.CaseUpdate, db: Session = Depends
     
     if case.status:
         db_case.status = case.status
+    if case.photo_url:
+        db_case.person.photo_url = case.photo_url
+        
     db.commit()
     db.refresh(db_case)
     return db_case

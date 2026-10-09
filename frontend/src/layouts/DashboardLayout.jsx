@@ -57,6 +57,8 @@ export default function DashboardLayout() {
           <NavItem icon={Home} label="Shelter" to="/shelter" active={path === '/shelter'} />
           <NavItem icon={UserPlus} label="Rescue" to="/rescue" active={path === '/rescue'} />
           <NavItem icon={Activity} label="Predictions" to="/predictions" active={path === '/predictions'} />
+          <NavItem icon={Activity} label="Disaster Pulse" to="/pulse" active={path === '/pulse'} />
+          <NavItem icon={ShieldCheck} label="Identity Matching" to="/identity-matching" active={path === '/identity-matching'} />
           <NavItem icon={Bell} label="Notifications" to="/notifications" active={path === '/notifications'} badge={unreadCount > 0 ? unreadCount : null} />
         </nav>
       </aside>

@@ -31,6 +31,7 @@ class CaseCreate(CaseBase):
 
 class CaseUpdate(BaseModel):
     status: Optional[str] = None
+    photo_url: Optional[str] = None
 
 class FamilyReportBase(BaseModel):
     reporter_name: str
